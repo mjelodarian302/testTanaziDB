@@ -1,0 +1,21 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+CREATE FUNCTION [dbo].[ToGregorian] (@date VARCHAR (10))
+RETURNS DATETIME AS
+BEGIN
+DECLARE @year SMALLINT
+DECLARE @month SMALLINT
+DECLARE @day SMALLINT
+DECLARE @pos1 SMALLINT
+DECLARE @pos2 SMALLINT
+SET @pos1 = CHARINDEX('/', @date)
+SET @pos2 = CHARINDEX('/', @date, @pos1+1)
+SET @year = CAST(LEFT(@date, @pos1-1) AS SMALLINT)
+SET @month = CAST(SUBSTRING(@date, @pos1+1, @pos2-@pos1-1) AS SMALLINT) 
+SET @day = CAST(SUBSTRING(@date, @pos2+1, LEN(@date)-@pos2) AS SMALLINT)
+RETURN dbo.SolarToGregorian (@year, @month, @day)
+END
+GO
