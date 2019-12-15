@@ -257,6 +257,7 @@ CREATE TABLE [dbo].[p_master_1]
 [test_123] [nvarchar] (10) COLLATE Persian_100_CI_AI NULL,
 [test_12345] [nvarchar] (10) COLLATE Persian_100_CI_AI NULL,
 [test_123456] [nchar] (10) COLLATE Persian_100_CI_AI NULL,
-[test_1212] [varchar] (50) COLLATE Persian_100_CI_AI NULL
+[test_1212] [varchar] (50) COLLATE Persian_100_CI_AI NULL,
+[tttrt] [nchar] (10) COLLATE Persian_100_CI_AI NULL
 ) ON [PRIMARY]
 GO
